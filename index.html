@@ -12,7 +12,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;ba
 header{max-width:1120px;margin:auto;padding:24px 22px;display:flex;justify-content:space-between;align-items:center;gap:15px}
 .logo{font-weight:800;letter-spacing:.02em}.logo span{color:var(--caramel)}nav{display:flex;gap:8px;flex-wrap:wrap}nav a{color:var(--muted);text-decoration:none;font-size:13px;padding:8px 11px;border-radius:30px}nav a:hover{background:#fff8}
 main{max-width:1020px;margin:auto;padding:12px 22px 70px}
-.hero{min-height:520px;border-radius:34px;background:linear-gradient(135deg,#fffaf3 0%,#f2dfcc 100%);box-shadow:var(--shadow);display:grid;grid-template-columns:1.1fr .9fr;align-items:center;overflow:hidden;position:relative;padding:clamp(28px,6vw,70px)}
+.hero{min-height:min(690px, calc(100vh - 110px));border-radius:34px;background:linear-gradient(135deg,#fffaf3 0%,#f2dfcc 100%);box-shadow:var(--shadow);display:grid;grid-template-columns:1.1fr .9fr;align-items:center;overflow:hidden;position:relative;padding:clamp(28px,6vw,70px)}
 .eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--caramel);font-weight:800}
 h1{font-family:Georgia,serif;font-size:clamp(42px,6vw,70px);line-height:1.02;font-weight:500;margin:18px 0;color:#553d30}
 .hero p{font-size:16px;line-height:1.8;color:var(--muted);max-width:430px}
@@ -62,9 +62,50 @@ footer{text-align:center;padding:65px 20px 25px;color:#a58a76;font-size:13px}
   <nav><a href="#cocoa">Какао</a><a href="#cats">мяукалки</a><a href="#kisses">буськи</a><a href="#letter">послание</a></nav>
 </header>
 <main>
-  <div class="hero">
+  <!-- ТИТУЛЬНАЯ СТРАНИЦА -->
+  <div class="hero" id="top">
+    <div class="hero-copy">
+      <div class="eyebrow">Ну что-то типо ♡</div>
+      <h1>Вот тебе<br>мирок</h1>
+      <p>Смотри что-то понатыкал</p>
+      <a class="primary" href="#cocoa" style="display:inline-block;text-decoration:none">ТЫК ↓</a>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="moon"></div>
+      <span class="spark s1">✦</span>
+      <span class="spark s2">✧</span>
+      <span class="spark s3">✦</span>
+      <div class="cat-hero">🐈</div>
+      <div class="cup">☕</div>
+    </div>
+  </div>
+
+  <!-- РАЗДЕЛЫ НАЧИНАЮТСЯ ПОСЛЕ ТИТУЛКИ -->
+  <section id="cocoa">
+    <div class="section-head">
+      <div class="eyebrow">важный пункт меню</div>
+      <h2>Похавать земли</h2>
+      <p>Обсидовская фирменная дегустация ♡</p>
+    </div>
+    <div class="cocoa-panel">
+      <div class="cocoa-visual" id="cocoaVisual">🪴</div>
+      <div class="cocoa-controls">
+        <h3>Тарелочка от шефа</h3>
+        <p>Свежайшая отборная земля,подаётся с щепоткой любви.</p>
+        <div class="toppings">
+          <button class="topping" type="button" onclick="toggleTopping(this,'🤎')">🤎 Любовь</button>
+          <button class="topping" type="button" onclick="toggleTopping(this,'🐈')">🐈 Кото-одобрение</button>
+          <button class="topping" type="button" onclick="toggleTopping(this,'✨')">✨ Волшебная пыль</button>
+          <button class="topping" type="button" onclick="toggleTopping(this,'💋')">💋 Буська сверху</button>
+        </div>
+        <button class="soft" type="button" onclick="makeCocoa()">Попробовать  ♡</button>
+        <div class="result" id="cocoaResult">Шеф ждёт заказа</div>
+      </div>
+    </div>
+  </section>
+
   <section id="cats">
-    <div class="section-head"><div class="eyebrow">отдел пушистой поддержки</div><h2>Котики проф специалисты </h2></div>
+    <div class="section-head"><div class="eyebrow">отдел пушистой поддержки</div><h2>Котики проф специалисты</h2><p>Выбирай своего спеца</p></div>
     <div class="cat-grid">
       <div class="cat" onclick="catMessage(0)"><div class="emoji">🐈</div><b>Пушок</b><small>специалист по уюту</small></div>
       <div class="cat" onclick="catMessage(1)"><div class="emoji">🐈‍⬛</div><b>Снежок</b><small>охранник спокойствия</small></div>
@@ -74,6 +115,7 @@ footer{text-align:center;padding:65px 20px 25px;color:#a58a76;font-size:13px}
   </section>
 
   <section id="kisses">
+    <div class="section-head"><div class="eyebrow">отдельный раздел нежности</div><h2>Не целуют? Целуют!</h2></div>
     <div class="kissbox" id="kissbox" aria-label="Буськи">
       <button class="kiss-button" onclick="giveKiss()" aria-label="Чмок">
         <span class="kiss" id="kissEmoji">💋</span>
@@ -83,11 +125,11 @@ footer{text-align:center;padding:65px 20px 25px;color:#a58a76;font-size:13px}
   </section>
 
   <section id="letter">
-    <div class="section-head"><div class="eyebrow">Итак послание!</div><h2></h2></div>
+    <div class="section-head"><div class="eyebrow">Итак послание!</div><h2>Для тебя 🤎</h2></div>
     <div class="note">
       <div class="eyebrow">кхм-кхм (типо разогрев кашлем) ♡</div>
       <h3>Пусть сегодняшний день принесет тебе больше тепла чем обычно</h3>
-      <p>Ты самый дорогой и важный мой человечек, которого я хочу окутать любовью и заботой (и землей если надо) </p>
+      <p>Ты самый дорогой и важный мой человечек, которого я хочу окутать любовью, заботой и теплом, ты по настоящему, прекрасная и замечательная девочка </p>
       <p>Я люблю тебя 🤎</p>
       <div style="text-align:right;color:#b18a6d;font-family:Georgia,serif">п.с какой-то там обсид</div>
     </div>
@@ -98,6 +140,12 @@ footer{text-align:center;padding:65px 20px 25px;color:#a58a76;font-size:13px}
 <script>
 const selected=[];
 function toggleTopping(btn,emoji){btn.classList.toggle('active');const i=selected.indexOf(emoji);if(i>-1)selected.splice(i,1);else selected.push(emoji)}
+function makeCocoa(){
+  const result=document.getElementById('cocoaResult');
+  const extras=selected.length ? selected.join(' ') : '🤎';
+  result.textContent=`Блюдо подано ${extras}  приятного аппетита!`;
+  toast('Блюдо подано 🪴');
+}
 const cats=[
 'Снежок сообщает- сегодня тебе официально разрешено похавать земли с обсидом。',
 'Пушок  напоминает этот чел тебя очень любит и против твоих открытых животиков но и ЗА🐾',
