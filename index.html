@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f5eadb">
-<title>Кэссина страна маленьких радостей</title>
+<title>Вот тебе мирок</title>
 <style>
 :root{--cream:#f7efe4;--paper:#fffaf3;--brown:#604638;--muted:#987d6b;--caramel:#c58e61;--rose:#d9a6a0;--line:#ead9c8;--shadow:0 18px 55px #76583b18}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--brown);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;overflow-x:hidden}
@@ -58,25 +58,13 @@ footer{text-align:center;padding:65px 20px 25px;color:#a58a76;font-size:13px}
 </head>
 <body>
 <header>
-  <div class="logo">маленький мир <span>Кэсси</span> ☁</div>
-  <nav><a href="#cocoa">Какао</a><a href="#cats">Котики</a><a href="#kisses">Буськи</a><a href="#letter">Письмо</a></nav>
+  <div class="logo"> потыкай тут везде можно <span></span> ☁</div>
+  <nav><a href="#cocoa">Какао</a><a href="#cats">мяукалки</a><a href="#kisses">буськи</a><a href="#letter">послание</a></nav>
 </header>
 <main>
   <div class="hero">
-    <div>
-      <div class="eyebrow">место, где тебе рады всегда</div>
-      <h1>Кэсся,<br>это всё тебе.</h1>
-      <p>Смотри что-то понатыкал </p>
-      <button class="primary" onclick="document.querySelector('#cocoa').scrollIntoView({behavior:'smooth'})">Начать с какао ☕</button>
-    </div>
-    <div class="hero-art" aria-label="Котик и какао">
-      <div class="moon"></div><span class="spark s1">✦</span><span class="spark s2">✧</span><span class="spark s3">♡</span>
-      <div class="cat-hero">🐈</div><div class="cup">☕</div>
-    </div>
-  </div>
-
   <section id="cats">
-    <div class="section-head"><div class="eyebrow">отдел пушистой поддержки</div><h2>Котики проф специалисты </h2><p>Выбирай своего спеца</p></div>
+    <div class="section-head"><div class="eyebrow">отдел пушистой поддержки</div><h2>Котики проф специалисты </h2></div>
     <div class="cat-grid">
       <div class="cat" onclick="catMessage(0)"><div class="emoji">🐈</div><b>Пушок</b><small>специалист по уюту</small></div>
       <div class="cat" onclick="catMessage(1)"><div class="emoji">🐈‍⬛</div><b>Снежок</b><small>охранник спокойствия</small></div>
@@ -95,9 +83,9 @@ footer{text-align:center;padding:65px 20px 25px;color:#a58a76;font-size:13px}
   </section>
 
   <section id="letter">
-    <div class="section-head"><div class="eyebrow">Итак письмо!</div><h2></h2></div>
+    <div class="section-head"><div class="eyebrow">Итак послание!</div><h2></h2></div>
     <div class="note">
-      <div class="eyebrow">для моей Кэсси ♡</div>
+      <div class="eyebrow">кхм-кхм (типо разогрев кашлем) ♡</div>
       <h3>Пусть сегодняшний день принесет тебе больше тепла чем обычно</h3>
       <p>Ты самый дорогой и важный мой человечек, которого я хочу окутать любовью и заботой (и землей если надо) </p>
       <p>Я люблю тебя 🤎</p>
@@ -110,10 +98,9 @@ footer{text-align:center;padding:65px 20px 25px;color:#a58a76;font-size:13px}
 <script>
 const selected=[];
 function toggleTopping(btn,emoji){btn.classList.toggle('active');const i=selected.indexOf(emoji);if(i>-1)selected.splice(i,1);else selected.push(emoji)}
-function makeCocoa(){document.getElementById('cocoaCup').textContent='☕'+(selected.length?' '+selected.join(' '):'');document.getElementById('cocoaResult').textContent=selected.length?'Твоё какао готово '+selected.join(' ')+' Обсиди передаёт: пусть каждый глоточек будет чуточку уютнее.':'Классическое какао готово. Иногда простые вещи самые хорошие. 🤎';toast('Какао приготовлено для Кэсси ☕')}
 const cats=[
-'Снежок сообщает- сегодня тебе официально разрешено похавать земли с обсидом Мур。',
-'Пушок  напоминает этот чел тебя очень любит🐾',
+'Снежок сообщает- сегодня тебе официально разрешено похавать земли с обсидом。',
+'Пушок  напоминает этот чел тебя очень любит и против твоих открытых животиков но и ЗА🐾',
 'Лошок передаёт тебе мягкое мур-мур и просит не забывать, какая ты замечательная. 🧡'
 ];
 function catMessage(i){document.getElementById('catResult').textContent=cats[i]}
