@@ -37,7 +37,14 @@ section{padding:78px 0 10px;scroll-margin-top:20px}
 .cocoa-controls h3{font:500 30px Georgia,serif;margin:0 0 10px}.cocoa-controls p{color:var(--muted);line-height:1.7}
 .toppings{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0}.topping{border:1px solid var(--line);background:#fff9f1;border-radius:22px;padding:9px 13px;color:var(--brown);cursor:pointer}.topping.active{background:#6b4b3b;color:white;border-color:#6b4b3b}
 .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.cat{background:#fffaf4;border-radius:23px;padding:20px;text-align:center;border:1px solid #fff;cursor:pointer;transition:.2s}.cat:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.cat .emoji{font-size:58px}.cat b{display:block;margin:8px}.cat small{color:var(--muted)}
-.kissbox{background:#fff9f1;border-radius:30px;padding:38px;text-align:center;box-shadow:var(--shadow)}.kiss{font-size:72px;min-height:90px}.kissbox p{color:var(--muted)}
+.kissbox{background:#fff9f1;border-radius:30px;padding:38px;text-align:center;box-shadow:var(--shadow);min-height:210px;display:grid;place-items:center;overflow:visible}
+.kiss-button{border:0;background:transparent;cursor:pointer;padding:16px;border-radius:50%;transition:transform .2s;position:relative;z-index:2}
+.kiss-button:hover{transform:scale(1.12) rotate(-7deg)}
+.kiss-button:active{transform:scale(.94)}
+.kiss-button .kiss{display:block;font-size:86px;line-height:1;filter:drop-shadow(0 12px 12px #76583b22);animation:kissPulse 1.8s ease-in-out infinite}
+@keyframes kissPulse{50%{transform:scale(1.1) rotate(5deg)}}
+.flying-kiss{position:fixed;left:0;top:0;z-index:9999;pointer-events:none;font-size:clamp(34px,6vw,62px);will-change:transform,opacity;animation:flyAcross 1.7s cubic-bezier(.18,.72,.24,1) forwards}
+@keyframes flyAcross{0%{opacity:0;transform:translate(var(--sx),var(--sy)) scale(.35) rotate(-18deg)}12%{opacity:1}100%{opacity:0;transform:translate(var(--ex),var(--ey)) scale(1.5) rotate(var(--rot))}}
 .note{max-width:720px;margin:auto;background:#fffaf3;padding:clamp(28px,5vw,52px);border-radius:8px 8px 28px 28px;box-shadow:var(--shadow);position:relative;transform:rotate(-.5deg)}.note:before{content:"";position:absolute;top:0;left:0;right:0;height:9px;background:repeating-linear-gradient(135deg,#d7b79b 0 8px,#f1dfcc 8px 16px)}
 .note h3{font:500 31px Georgia,serif;margin:15px 0}.note p{font:16px/1.95 Georgia,serif;color:#765e4e}
 footer{text-align:center;padding:65px 20px 25px;color:#a58a76;font-size:13px}
@@ -55,7 +62,7 @@ footer{text-align:center;padding:65px 20px 25px;color:#a58a76;font-size:13px}
     <div>
       <div class="eyebrow">место, где тебе рады всегда</div>
       <h1>Кэсся,<br>это всё тебе.</h1>
-      <p>Я собрал здесь немного уютных вещей для маленького хорошего настроения </p>
+      <p>Смотри что-то понатыкал </p>
       <button class="primary" onclick="document.querySelector('#cocoa').scrollIntoView({behavior:'smooth'})">Начать с какао ☕</button>
     </div>
     <div class="hero-art" aria-label="Котик и какао">
@@ -75,11 +82,10 @@ footer{text-align:center;padding:65px 20px 25px;color:#a58a76;font-size:13px}
   </section>
 
   <section id="kisses">
-    <div class="section-head"><div class="eyebrow">автомат нежности</div><h2>Не целуют? целуют! </h2><p></p></div>
-    <div class="kissbox">
-      <div class="kiss" id="kissEmoji">💋</div>
-      <p id="kissText">Кажется поцеловал?.</p>
-      <button class="primary" onclick="giveKiss()">Чмок</button>
+    <div class="kissbox" id="kissbox" aria-label="Буськи">
+      <button class="kiss-button" onclick="giveKiss()" aria-label="Чмок">
+        <span class="kiss" id="kissEmoji">💋</span>
+      </button>
     </div>
   </section>
 
@@ -106,8 +112,25 @@ const cats=[
 'Лошок передаёт тебе мягкое мур-мур и просит не забывать, какая ты замечательная. 🧡'
 ];
 function catMessage(i){document.getElementById('catResult').textContent=cats[i]}
-const kisses=[['💋','Одна буська прямо в носик. Аккуратно, но с чувством.'],['😘','Целая посылка поцелуев для Кэсси!'],['🐾','Котик одобрил. Добавляет к буське своё мур-мур.'],['💕','Две буськи вместо одной. За хорошее поведение и просто так.'],['🫶','Крепкое виртуальное обнимание. Не потерять по дороге.']];
-let last=-1;function giveKiss(){let n;do{n=Math.floor(Math.random()*kisses.length)}while(n===last);last=n;document.getElementById('kissEmoji').textContent=kisses[n][0];document.getElementById('kissText').textContent=kisses[n][1];}
+const kisses=['💋','😘','💋','💕','💋','💗','😘','💞'];
+function giveKiss(){
+  const box=document.getElementById('kissbox');
+  const rect=box.getBoundingClientRect();
+  const sx=rect.left+rect.width/2;
+  const sy=rect.top+rect.height/2;
+  const kiss=document.createElement('span');
+  kiss.className='flying-kiss';
+  kiss.textContent=kisses[Math.floor(Math.random()*kisses.length)];
+  const angle=(Math.random()*100-50)*Math.PI/180;
+  const distance=180+Math.random()*260;
+  kiss.style.setProperty('--sx',`${sx}px`);
+  kiss.style.setProperty('--sy',`${sy}px`);
+  kiss.style.setProperty('--ex',`${Math.cos(angle)*distance+(Math.random()*100-50)}px`);
+  kiss.style.setProperty('--ey',`${-Math.abs(Math.sin(angle)*distance)-220-Math.random()*220}px`);
+  kiss.style.setProperty('--rot',`${Math.random()*70-35}deg`);
+  document.body.appendChild(kiss);
+  kiss.addEventListener('animationend',()=>kiss.remove(),{once:true});
+}
 let toastTimer;function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),1800)}
 </script>
 </body>
