@@ -43,6 +43,10 @@ section{padding:78px 0 10px;scroll-margin-top:20px}
 .kiss-button:active{transform:scale(.94)}
 .kiss-button .kiss{display:block;font-size:86px;line-height:1;filter:drop-shadow(0 12px 12px #76583b22);animation:kissPulse 1.8s ease-in-out infinite}
 @keyframes kissPulse{50%{transform:scale(1.1) rotate(5deg)}}
+
+.rain-button{border:1px solid #e7d2bf;background:#f7e9dc;color:#765846;border-radius:28px;padding:12px 19px;font:inherit;font-weight:700;cursor:pointer;transition:transform .18s,background .18s;touch-action:none;user-select:none}
+.rain-button:hover{background:#f0ddca;transform:translateY(-2px)}
+.rain-button:active,.rain-button.is-holding{transform:scale(.96);background:#ead2bd}
 .flying-kiss{position:fixed;left:0;top:0;z-index:9999;pointer-events:none;font-size:clamp(34px,6vw,62px);will-change:transform,opacity;animation:flyAcross 1.7s cubic-bezier(.18,.72,.24,1) forwards}
 @keyframes flyAcross{0%{opacity:0;transform:translate(var(--sx),var(--sy)) scale(.35) rotate(-18deg)}12%{opacity:1}100%{opacity:0;transform:translate(var(--ex),var(--ey)) scale(1.5) rotate(var(--rot))}}
 .note{max-width:720px;margin:auto;background:#fffaf3;padding:clamp(28px,5vw,52px);border-radius:8px 8px 28px 28px;box-shadow:var(--shadow);position:relative;transform:rotate(-.5deg)}.note:before{content:"";position:absolute;top:0;left:0;right:0;height:9px;background:repeating-linear-gradient(135deg,#d7b79b 0 8px,#f1dfcc 8px 16px)}
@@ -86,6 +90,7 @@ footer{text-align:center;padding:65px 20px 25px;color:#a58a76;font-size:13px}
       <button class="kiss-button" onclick="giveKiss()" aria-label="Чмок">
         <span class="kiss" id="kissEmoji">💋</span>
       </button>
+      <button class="rain-button" id="rainButton" type="button">Ещё одну буську 💋</button>
     </div>
   </section>
 
@@ -131,6 +136,22 @@ function giveKiss(){
   document.body.appendChild(kiss);
   kiss.addEventListener('animationend',()=>kiss.remove(),{once:true});
 }
+
+const rainButton=document.getElementById('rainButton');
+let rainInterval=null;
+function startKissRain(event){
+  event.preventDefault();
+  if(rainInterval) return;
+  rainButton.classList.add('is-holding');
+  giveKiss();
+  rainInterval=setInterval(giveKiss,150);
+}
+function stopKissRain(){
+  if(rainInterval){clearInterval(rainInterval);rainInterval=null;}
+  rainButton.classList.remove('is-holding');
+}
+rainButton.addEventListener('pointerdown',startKissRain);
+['pointerup','pointerleave','pointercancel','lostpointercapture'].forEach(type=>rainButton.addEventListener(type,stopKissRain));
 let toastTimer;function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),1800)}
 </script>
 </body>
