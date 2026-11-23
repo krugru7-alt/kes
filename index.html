@@ -55,7 +55,7 @@ footer{text-align:center;padding:65px 20px 25px;color:#a58a76;font-size:13px}
     <div>
       <div class="eyebrow">место, где тебе рады всегда</div>
       <h1>Кэсся,<br>это всё тебе.</h1>
-      <p>Я собрал здесь немного уютных вещей: какао, котиков, бусек и чуточку своего тепла. Ничего не нужно делать правильно. Просто побудь здесь немного.</p>
+      <p>Я собрал здесь немного уютных вещей для маленького хорошего настроения </p>
       <button class="primary" onclick="document.querySelector('#cocoa').scrollIntoView({behavior:'smooth'})">Начать с какао ☕</button>
     </div>
     <div class="hero-art" aria-label="Котик и какао">
@@ -64,68 +64,49 @@ footer{text-align:center;padding:65px 20px 25px;color:#a58a76;font-size:13px}
     </div>
   </div>
 
-  <section id="cocoa">
-    <div class="section-head"><div class="eyebrow">маленькая какао-станция</div><h2>Сначала согреемся?</h2><p>Собери себе чашечку. Обсиди проследит, чтобы маршмеллоу было достаточно.</p></div>
-    <div class="cocoa-panel">
-      <div class="cocoa-visual" id="cocoaCup">☕</div>
-      <div class="cocoa-controls">
-        <h3>Какао для Кэсси</h3><p>Выбирай добавки, а потом забирай свою виртуальную чашку уюта.</p>
-        <div class="toppings">
-          <button class="topping" onclick="toggleTopping(this,'☁️')">☁️ Маршмеллоу</button>
-          <button class="topping" onclick="toggleTopping(this,'🤎')">🤎 Шоколад</button>
-          <button class="topping" onclick="toggleTopping(this,'✨')">✨ Немного волшебства</button>
-        </div>
-        <button class="primary" onclick="makeCocoa()">Забрать какао</button>
-        <div class="result" id="cocoaResult">Твоя чашка пока ждёт своего момента 🤎</div>
-      </div>
-    </div>
-  </section>
-
   <section id="cats">
-    <div class="section-head"><div class="eyebrow">отдел пушистой поддержки</div><h2>Котики пришли проведать</h2><p>Выбери любого. У каждого есть важное кошачье сообщение.</p></div>
+    <div class="section-head"><div class="eyebrow">отдел пушистой поддержки</div><h2>Котики проф специалисты </h2><p>Выбирай своего спеца</p></div>
     <div class="cat-grid">
-      <div class="cat" onclick="catMessage(0)"><div class="emoji">🐈</div><b>Плюш</b><small>специалист по уюту</small></div>
-      <div class="cat" onclick="catMessage(1)"><div class="emoji">🐈‍⬛</div><b>Уголёк</b><small>охранник спокойствия</small></div>
-      <div class="cat" onclick="catMessage(2)"><div class="emoji">🐱</div><b>Персик</b><small>эксперт по нежности</small></div>
+      <div class="cat" onclick="catMessage(0)"><div class="emoji">🐈</div><b>Пушок</b><small>специалист по уюту</small></div>
+      <div class="cat" onclick="catMessage(1)"><div class="emoji">🐈‍⬛</div><b>Снежок</b><small>охранник спокойствия</small></div>
+      <div class="cat" onclick="catMessage(2)"><div class="emoji">🐱</div><b>Лошок</b><small>эксперт по нежности</small></div>
     </div>
-    <div class="result" id="catResult">Мяу. Выбери котика, он кое-что приготовил.</div>
+    <div class="result" id="catResult">Мяу.</div>
   </section>
 
   <section id="kisses">
-    <div class="section-head"><div class="eyebrow">автомат нежности</div><h2>Буськи? Буськи.</h2><p>Пополнение запасов тепла производится без ограничений.</p></div>
+    <div class="section-head"><div class="eyebrow">автомат нежности</div><h2>Не целуют? целуют! </h2><p></p></div>
     <div class="kissbox">
       <div class="kiss" id="kissEmoji">💋</div>
-      <p id="kissText">Кажется, здесь кто-то заслужил порцию бусек.</p>
-      <button class="primary" onclick="giveKiss()">Получить буську</button>
+      <p id="kissText">Кажется поцеловал?.</p>
+      <button class="primary" onclick="giveKiss()">Чмок</button>
     </div>
   </section>
 
   <section id="letter">
-    <div class="section-head"><div class="eyebrow">маленькая записка от обсиди</div><h2>И кое-что напоследок</h2></div>
+    <div class="section-head"><div class="eyebrow">Итак письмо!</div><h2></h2></div>
     <div class="note">
       <div class="eyebrow">для моей Кэсси ♡</div>
-      <h3>Пусть у тебя сегодня будет чуть больше тепла.</h3>
-      <p>Я не могу укутать тебя в плед через экран, поставить рядом настоящую чашку какао или отправить к тебе котика, который будет мурлыкать под боком. Но могу напомнить: ты очень дорога мне.</p>
-      <p>Мне хочется, чтобы у тебя находились поводы улыбнуться даже в обычном дне. Чтобы было время выдохнуть, побыть собой, никуда не торопиться и почувствовать, что о тебе думают.</p>
-      <p>Поэтому здесь есть какао, котики и бесконечный запас бусек. А ещё есть один Обсиди, который очень хотел сделать для тебя что-нибудь хорошее.</p>
-      <p>Обнимаю тебя мысленно. И целую в носик. 🤎</p>
-      <div style="text-align:right;color:#b18a6d;font-family:Georgia,serif">твой Обсиди</div>
+      <h3>Пусть сегодняшний день принесет тебе больше тепла чем обычно</h3>
+      <p>Ты самый дорогой и важный мой человечек, которого я хочу окутать любовью и заботой (и землей если надо) </p>
+      <p>Я люблю тебя 🤎</p>
+      <div style="text-align:right;color:#b18a6d;font-family:Georgia,serif">п.с какой-то там обсид</div>
     </div>
   </section>
 </main>
-<footer>сделано с теплом специально для Кэсси · ☕ 🐈 💋</footer>
+<footer>с любовью, гаф ☕ 🐈 💋</footer>
 <div class="toast" id="toast">Готово 🤎</div>
 <script>
 const selected=[];
 function toggleTopping(btn,emoji){btn.classList.toggle('active');const i=selected.indexOf(emoji);if(i>-1)selected.splice(i,1);else selected.push(emoji)}
 function makeCocoa(){document.getElementById('cocoaCup').textContent='☕'+(selected.length?' '+selected.join(' '):'');document.getElementById('cocoaResult').textContent=selected.length?'Твоё какао готово '+selected.join(' ')+' Обсиди передаёт: пусть каждый глоточек будет чуточку уютнее.':'Классическое какао готово. Иногда простые вещи самые хорошие. 🤎';toast('Какао приготовлено для Кэсси ☕')}
 const cats=[
-'Плюш сообщает: сегодня тебе официально разрешено завернуться в плед и принимать комплименты. Мур。',
-'Уголёк сел рядом и напоминает: не всё нужно решать прямо сейчас. Иногда достаточно просто выдохнуть. 🐾',
-'Персик передаёт тебе мягкое мур-мур и просит не забывать, какая ты замечательная. 🧡'
+'Снежок сообщает- сегодня тебе официально разрешено похавать земли с обсидом Мур。',
+'Пушок  напоминает этот чел тебя очень любит🐾',
+'Лошок передаёт тебе мягкое мур-мур и просит не забывать, какая ты замечательная. 🧡'
 ];
 function catMessage(i){document.getElementById('catResult').textContent=cats[i]}
-const kisses=[['💋','Одна буська прямо в носик. Аккуратно, но с чувством.'],['😘','Целая посылка поцелуев для Кэсси!'],['🤎','Тёплая буська от Обсиди. Хранить поближе к сердцу.'],['🐾','Котик одобрил. Добавляет к буське своё мур-мур.'],['💕','Две буськи вместо одной. За хорошее поведение и просто так.'],['🫶','Крепкое виртуальное обнимание. Не потерять по дороге.']];
+const kisses=[['💋','Одна буська прямо в носик. Аккуратно, но с чувством.'],['😘','Целая посылка поцелуев для Кэсси!'],['🐾','Котик одобрил. Добавляет к буське своё мур-мур.'],['💕','Две буськи вместо одной. За хорошее поведение и просто так.'],['🫶','Крепкое виртуальное обнимание. Не потерять по дороге.']];
 let last=-1;function giveKiss(){let n;do{n=Math.floor(Math.random()*kisses.length)}while(n===last);last=n;document.getElementById('kissEmoji').textContent=kisses[n][0];document.getElementById('kissText').textContent=kisses[n][1];}
 let toastTimer;function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),1800)}
 </script>
