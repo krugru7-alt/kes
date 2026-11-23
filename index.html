@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5eadb">
+<title>Кэссина страна маленьких радостей</title>
+<style>
+:root{--cream:#f7efe4;--paper:#fffaf3;--brown:#604638;--muted:#987d6b;--caramel:#c58e61;--rose:#d9a6a0;--line:#ead9c8;--shadow:0 18px 55px #76583b18}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--brown);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;background-image:radial-gradient(#b58c6a 0.7px,transparent .7px);background-size:19px 19px;z-index:-1}
+header{max-width:1120px;margin:auto;padding:24px 22px;display:flex;justify-content:space-between;align-items:center;gap:15px}
+.logo{font-weight:800;letter-spacing:.02em}.logo span{color:var(--caramel)}nav{display:flex;gap:8px;flex-wrap:wrap}nav a{color:var(--muted);text-decoration:none;font-size:13px;padding:8px 11px;border-radius:30px}nav a:hover{background:#fff8}
+main{max-width:1020px;margin:auto;padding:12px 22px 70px}
+.hero{min-height:520px;border-radius:34px;background:linear-gradient(135deg,#fffaf3 0%,#f2dfcc 100%);box-shadow:var(--shadow);display:grid;grid-template-columns:1.1fr .9fr;align-items:center;overflow:hidden;position:relative;padding:clamp(28px,6vw,70px)}
+.eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--caramel);font-weight:800}
+h1{font-family:Georgia,serif;font-size:clamp(42px,6vw,70px);line-height:1.02;font-weight:500;margin:18px 0;color:#553d30}
+.hero p{font-size:16px;line-height:1.8;color:var(--muted);max-width:430px}
+.primary,.soft{border:0;border-radius:30px;padding:14px 21px;font:inherit;font-weight:700;cursor:pointer;transition:.2s}
+.primary{background:var(--brown);color:#fffaf3;box-shadow:0 8px 18px #60463825}.primary:hover,.soft:hover{transform:translateY(-2px)}
+.soft{background:#f3e3d2;color:var(--brown)}
+.hero-art{position:relative;min-height:330px;display:grid;place-items:center}
+.moon{position:absolute;width:275px;height:275px;border-radius:50%;background:#f9e8d2;box-shadow:inset -15px -12px 0 #edcfb3}
+.cat-hero{position:relative;font-size:150px;filter:drop-shadow(0 18px 12px #78543b22);animation:float 4s ease-in-out infinite}
+.cup{position:absolute;right:5%;bottom:23px;font-size:75px;transform:rotate(-8deg)}
+.spark{position:absolute;color:#c58e61;font-size:25px;animation:twinkle 2.5s infinite}
+.s1{top:10%;left:12%}.s2{right:9%;top:18%;animation-delay:.8s}.s3{left:18%;bottom:15%;animation-delay:1.2s}
+@keyframes float{50%{transform:translateY(-12px)}}@keyframes twinkle{50%{opacity:.35;transform:scale(.8) rotate(18deg)}}
+section{padding:78px 0 10px;scroll-margin-top:20px}
+.section-head{text-align:center;margin-bottom:28px}.section-head h2{font:500 clamp(31px,4vw,43px) Georgia,serif;margin:10px 0}.section-head p{color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--paper);border:1px solid #fff;border-radius:24px;padding:23px;box-shadow:var(--shadow);text-align:center}
+.card .emoji{font-size:52px;display:block;margin:3px 0 12px}.card h3{margin:8px 0;font-size:18px}.card p{color:var(--muted);font-size:14px;line-height:1.6;min-height:44px}
+.result{margin:18px auto 0;max-width:600px;min-height:56px;background:#fff8ef;border:1px dashed #d9b99b;border-radius:18px;padding:16px;color:#765846;text-align:center;line-height:1.6}
+.cocoa-panel{background:linear-gradient(135deg,#f0dfcf,#fff8ef);border-radius:30px;padding:clamp(25px,5vw,48px);display:grid;grid-template-columns:.8fr 1.2fr;gap:30px;align-items:center;box-shadow:var(--shadow)}
+.cocoa-visual{text-align:center;font-size:125px;filter:drop-shadow(0 12px 10px #76583b20)}
+.cocoa-controls h3{font:500 30px Georgia,serif;margin:0 0 10px}.cocoa-controls p{color:var(--muted);line-height:1.7}
+.toppings{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0}.topping{border:1px solid var(--line);background:#fff9f1;border-radius:22px;padding:9px 13px;color:var(--brown);cursor:pointer}.topping.active{background:#6b4b3b;color:white;border-color:#6b4b3b}
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.cat{background:#fffaf4;border-radius:23px;padding:20px;text-align:center;border:1px solid #fff;cursor:pointer;transition:.2s}.cat:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.cat .emoji{font-size:58px}.cat b{display:block;margin:8px}.cat small{color:var(--muted)}
+.kissbox{background:#fff9f1;border-radius:30px;padding:38px;text-align:center;box-shadow:var(--shadow)}.kiss{font-size:72px;min-height:90px}.kissbox p{color:var(--muted)}
+.note{max-width:720px;margin:auto;background:#fffaf3;padding:clamp(28px,5vw,52px);border-radius:8px 8px 28px 28px;box-shadow:var(--shadow);position:relative;transform:rotate(-.5deg)}.note:before{content:"";position:absolute;top:0;left:0;right:0;height:9px;background:repeating-linear-gradient(135deg,#d7b79b 0 8px,#f1dfcc 8px 16px)}
+.note h3{font:500 31px Georgia,serif;margin:15px 0}.note p{font:16px/1.95 Georgia,serif;color:#765e4e}
+footer{text-align:center;padding:65px 20px 25px;color:#a58a76;font-size:13px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;background:#604638;color:white;padding:12px 18px;border-radius:30px;transition:.25s;pointer-events:none;z-index:5}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:700px){header{align-items:flex-start;flex-direction:column}nav{gap:2px}.hero{grid-template-columns:1fr;text-align:center;padding:34px 24px}.hero p{margin:0 auto 22px}.hero-art{min-height:240px}.moon{width:205px;height:205px}.cat-hero{font-size:115px}.cup{font-size:57px;right:9%;bottom:8px}.cards,.cat-grid{grid-template-columns:1fr}.cocoa-panel{grid-template-columns:1fr;text-align:center}.cocoa-visual{font-size:100px}.toppings{justify-content:center}.card p{min-height:0}section{padding-top:60px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">маленький мир <span>Кэсси</span> ☁</div>
+  <nav><a href="#cocoa">Какао</a><a href="#cats">Котики</a><a href="#kisses">Буськи</a><a href="#letter">Письмо</a></nav>
+</header>
+<main>
+  <div class="hero">
+    <div>
+      <div class="eyebrow">место, где тебе рады всегда</div>
+      <h1>Кэсся,<br>это всё тебе.</h1>
+      <p>Я собрал здесь немного уютных вещей: какао, котиков, бусек и чуточку своего тепла. Ничего не нужно делать правильно. Просто побудь здесь немного.</p>
+      <button class="primary" onclick="document.querySelector('#cocoa').scrollIntoView({behavior:'smooth'})">Начать с какао ☕</button>
+    </div>
+    <div class="hero-art" aria-label="Котик и какао">
+      <div class="moon"></div><span class="spark s1">✦</span><span class="spark s2">✧</span><span class="spark s3">♡</span>
+      <div class="cat-hero">🐈</div><div class="cup">☕</div>
+    </div>
+  </div>
+
+  <section id="cocoa">
+    <div class="section-head"><div class="eyebrow">маленькая какао-станция</div><h2>Сначала согреемся?</h2><p>Собери себе чашечку. Обсиди проследит, чтобы маршмеллоу было достаточно.</p></div>
+    <div class="cocoa-panel">
+      <div class="cocoa-visual" id="cocoaCup">☕</div>
+      <div class="cocoa-controls">
+        <h3>Какао для Кэсси</h3><p>Выбирай добавки, а потом забирай свою виртуальную чашку уюта.</p>
+        <div class="toppings">
+          <button class="topping" onclick="toggleTopping(this,'☁️')">☁️ Маршмеллоу</button>
+          <button class="topping" onclick="toggleTopping(this,'🤎')">🤎 Шоколад</button>
+          <button class="topping" onclick="toggleTopping(this,'✨')">✨ Немного волшебства</button>
+        </div>
+        <button class="primary" onclick="makeCocoa()">Забрать какао</button>
+        <div class="result" id="cocoaResult">Твоя чашка пока ждёт своего момента 🤎</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cats">
+    <div class="section-head"><div class="eyebrow">отдел пушистой поддержки</div><h2>Котики пришли проведать</h2><p>Выбери любого. У каждого есть важное кошачье сообщение.</p></div>
+    <div class="cat-grid">
+      <div class="cat" onclick="catMessage(0)"><div class="emoji">🐈</div><b>Плюш</b><small>специалист по уюту</small></div>
+      <div class="cat" onclick="catMessage(1)"><div class="emoji">🐈‍⬛</div><b>Уголёк</b><small>охранник спокойствия</small></div>
+      <div class="cat" onclick="catMessage(2)"><div class="emoji">🐱</div><b>Персик</b><small>эксперт по нежности</small></div>
+    </div>
+    <div class="result" id="catResult">Мяу. Выбери котика, он кое-что приготовил.</div>
+  </section>
+
+  <section id="kisses">
+    <div class="section-head"><div class="eyebrow">автомат нежности</div><h2>Буськи? Буськи.</h2><p>Пополнение запасов тепла производится без ограничений.</p></div>
+    <div class="kissbox">
+      <div class="kiss" id="kissEmoji">💋</div>
+      <p id="kissText">Кажется, здесь кто-то заслужил порцию бусек.</p>
+      <button class="primary" onclick="giveKiss()">Получить буську</button>
+    </div>
+  </section>
+
+  <section id="letter">
+    <div class="section-head"><div class="eyebrow">маленькая записка от обсиди</div><h2>И кое-что напоследок</h2></div>
+    <div class="note">
+      <div class="eyebrow">для моей Кэсси ♡</div>
+      <h3>Пусть у тебя сегодня будет чуть больше тепла.</h3>
+      <p>Я не могу укутать тебя в плед через экран, поставить рядом настоящую чашку какао или отправить к тебе котика, который будет мурлыкать под боком. Но могу напомнить: ты очень дорога мне.</p>
+      <p>Мне хочется, чтобы у тебя находились поводы улыбнуться даже в обычном дне. Чтобы было время выдохнуть, побыть собой, никуда не торопиться и почувствовать, что о тебе думают.</p>
+      <p>Поэтому здесь есть какао, котики и бесконечный запас бусек. А ещё есть один Обсиди, который очень хотел сделать для тебя что-нибудь хорошее.</p>
+      <p>Обнимаю тебя мысленно. И целую в носик. 🤎</p>
+      <div style="text-align:right;color:#b18a6d;font-family:Georgia,serif">твой Обсиди</div>
+    </div>
+  </section>
+</main>
+<footer>сделано с теплом специально для Кэсси · ☕ 🐈 💋</footer>
+<div class="toast" id="toast">Готово 🤎</div>
+<script>
+const selected=[];
+function toggleTopping(btn,emoji){btn.classList.toggle('active');const i=selected.indexOf(emoji);if(i>-1)selected.splice(i,1);else selected.push(emoji)}
+function makeCocoa(){document.getElementById('cocoaCup').textContent='☕'+(selected.length?' '+selected.join(' '):'');document.getElementById('cocoaResult').textContent=selected.length?'Твоё какао готово '+selected.join(' ')+' Обсиди передаёт: пусть каждый глоточек будет чуточку уютнее.':'Классическое какао готово. Иногда простые вещи самые хорошие. 🤎';toast('Какао приготовлено для Кэсси ☕')}
+const cats=[
+'Плюш сообщает: сегодня тебе официально разрешено завернуться в плед и принимать комплименты. Мур。',
+'Уголёк сел рядом и напоминает: не всё нужно решать прямо сейчас. Иногда достаточно просто выдохнуть. 🐾',
+'Персик передаёт тебе мягкое мур-мур и просит не забывать, какая ты замечательная. 🧡'
+];
+function catMessage(i){document.getElementById('catResult').textContent=cats[i]}
+const kisses=[['💋','Одна буська прямо в носик. Аккуратно, но с чувством.'],['😘','Целая посылка поцелуев для Кэсси!'],['🤎','Тёплая буська от Обсиди. Хранить поближе к сердцу.'],['🐾','Котик одобрил. Добавляет к буське своё мур-мур.'],['💕','Две буськи вместо одной. За хорошее поведение и просто так.'],['🫶','Крепкое виртуальное обнимание. Не потерять по дороге.']];
+let last=-1;function giveKiss(){let n;do{n=Math.floor(Math.random()*kisses.length)}while(n===last);last=n;document.getElementById('kissEmoji').textContent=kisses[n][0];document.getElementById('kissText').textContent=kisses[n][1];}
+let toastTimer;function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),1800)}
+</script>
+</body>
+</html>
